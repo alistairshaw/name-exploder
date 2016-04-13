@@ -1,0 +1,80 @@
+[
+    {
+        "primary": "Sr",
+        "language": "es",
+        "equivalents": "Señor",
+        "usageScore": 1
+    },
+    {
+        "primary": "Sra",
+        "language": "es",
+        "equivalents": "Señora",
+        "usageScore": 1
+    },
+    {
+        "primary": "Srta",
+        "language": "es",
+        "equivalents": "Señorita",
+        "usageScore": 1
+    },
+    {
+        "primary": "Doctor",
+        "language": "es",
+        "equivalents": "Dr",
+        "usageScore": 2
+    },
+    {
+        "primary": "Doctora",
+        "language": "es",
+        "equivalents": "Dra",
+        "usageScore": 2
+    },
+    {
+        "primary": "Capitán",
+        "language": "es",
+        "equivalents": "Cpt",
+        "usageScore": 2
+    },
+    {
+        "primary": "Profesor",
+        "language": "es",
+        "equivalents": "Prof",
+        "usageScore": 2
+    },
+    {
+        "primary": "Padre",
+        "language": "es",
+        "equivalents": "",
+        "usageScore": 2
+    },
+    {
+        "primary": "Dama",
+        "language": "es",
+        "equivalents": "",
+        "usageScore": 3
+    },
+    {
+        "primary": "Canon",
+        "language": "es",
+        "equivalents": "",
+        "usageScore": 3
+    },
+    {
+        "primary": "Colonel",
+        "language": "es",
+        "equivalents": "Col",
+        "usageScore": 3
+    },
+    {
+        "primary": "Rabino",
+        "language": "es",
+        "equivalents": "",
+        "usageScore": 4
+    },
+    {
+        "primary": "Hermana",
+        "language": "es",
+        "equivalents": "",
+        "usageScore": 4
+    }
+]

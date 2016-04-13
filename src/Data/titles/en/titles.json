@@ -1,0 +1,122 @@
+[
+    {
+        "primary": "Mr",
+        "language": "en",
+        "equivalents": "Mister",
+        "usageScore": 1
+    },
+    {
+        "primary": "Mrs",
+        "language": "en",
+        "equivalents": "Missus",
+        "usageScore": 1
+    },
+    {
+        "primary": "Miss",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 1
+    },
+    {
+        "primary": "Ms",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 1
+    },
+    {
+        "primary": "Doctor",
+        "language": "en",
+        "equivalents": "Dr",
+        "usageScore": 2
+    },
+    {
+        "primary": "Reverend",
+        "language": "en",
+        "equivalents": "Rev",
+        "usageScore": 2
+    },
+    {
+        "primary": "Captain",
+        "language": "en",
+        "equivalents": "Cpt",
+        "usageScore": 2
+    },
+    {
+        "primary": "Professor",
+        "language": "en",
+        "equivalents": "Prof",
+        "usageScore": 2
+    },
+    {
+        "primary": "Father",
+        "language": "en",
+        "equivalents": "Fr",
+        "usageScore": 2
+    },
+    {
+        "primary": "Dame",
+        "language": "en",
+        "equivalents": "Dme",
+        "usageScore": 3
+    },
+    {
+        "primary": "Canon",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 3
+    },
+    {
+        "primary": "Colonel",
+        "language": "en",
+        "equivalents": "Col",
+        "usageScore": 3
+    },
+    {
+        "primary": "Sir",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 3
+    },
+    {
+        "primary": "Lord",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 3
+    },
+    {
+        "primary": "Madam",
+        "language": "en",
+        "equivalents": "Mme",
+        "usageScore": 3
+    },
+    {
+        "primary": "Madame",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 4
+    },
+    {
+        "primary": "Major",
+        "language": "en",
+        "equivalents": "Maj",
+        "usageScore": 4
+    },
+    {
+        "primary": "Monsieur",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 4
+    },
+    {
+        "primary": "Rabbi",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 4
+    },
+    {
+        "primary": "Sister",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 4
+    }
+]
