@@ -1,0 +1,36 @@
+{
+    "name": "alistairshaw/name-exploder",
+    "type": "library",
+    "description": "Simple class to provide title, first name, middle initial and last name from a full name field (or in reverse). Works well for western(ish) names, but has sensible defaults otherwise",
+    "keywords": [
+        "names",
+        "western names",
+        "titles",
+        "first name",
+        "last name",
+        "surname",
+        "initials"
+    ],
+    "homepage": "https://github.com/alistairshaw/name-exploder",
+    "license": "MIT",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "Alistair Shaw",
+            "email": "alistairshaw@gmail.com",
+            "homepage": "http://alistairshaw.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    }
+}
