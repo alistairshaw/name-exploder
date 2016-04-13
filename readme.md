@@ -41,7 +41,7 @@ $name = $nameExploder->explode('Mr Alistair Shaw');
 
 ## Attaching your own data for titles
 You can easily write a new repository (implement \AlistairShaw\NameExploder\Title\TitleRepository)
-and inject it into the main class  Just ensure they are returned as a JSON string as per the built-in lists at /src/Data.
+and inject it into the main class  Just ensure you return an array of Title objects, and it will work great!
 
 ```php
 require 'vendor/autoload.php';
