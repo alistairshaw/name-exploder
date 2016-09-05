@@ -42,7 +42,7 @@ class Title {
      */
     public function __toString()
     {
-        return $this->display;
+        return (string)$this->display;
     }
 
 }
