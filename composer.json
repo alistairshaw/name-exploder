@@ -1,5 +1,6 @@
 {
     "name": "alistairshaw/name-exploder",
+    "version": "0.1.2",
     "type": "library",
     "description": "Simple class to provide title, first name, middle initial and last name from a full name field (or in reverse). Works well for western(ish) names, but has sensible defaults otherwise",
     "keywords": [
@@ -13,7 +14,6 @@
     ],
     "homepage": "https://github.com/alistairshaw/name-exploder",
     "license": "MIT",
-    "version": "0.1.1",
     "authors": [
         {
             "name": "Alistair Shaw",
