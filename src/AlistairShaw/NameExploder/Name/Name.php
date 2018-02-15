@@ -72,6 +72,16 @@ class Name {
     }
 
     /**
+     * @param Title $newTitle
+     * @return $this
+     */
+    public function updateTitle(Title $newTitle)
+    {
+        $this->title = $newTitle;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function __toString()

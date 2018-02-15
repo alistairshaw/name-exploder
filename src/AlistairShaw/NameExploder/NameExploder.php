@@ -32,13 +32,11 @@ class NameExploder {
     }
 
     /**
-     * @param        $name
-     * @return mixed
+     * @param $name
+     * @return Name
      */
     public function explode($name)
     {
-        if ($name == '') ;
-        
         // take out characters we don't want
         $name = trim(str_replace(array('.', ','), "", $name));
 
@@ -87,6 +85,31 @@ class NameExploder {
         }
 
         return new Name($firstName, $middleInitial, $lastName, $title);
+    }
+
+    /**
+     * @param Name $name
+     * @param $title
+     * @return Name
+     */
+    public function updateTitle(Name $name, $title)
+    {
+        $newTitle = $this->titleRepository->find($title, $this->language);
+        $name->updateTitle($newTitle);
+        return $name;
+    }
+
+    /**
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $middleInitial
+     * @param string $title
+     * @return Name
+     */
+    public function implode($firstName = '', $lastName = '', $middleInitial = '', $title = '')
+    {
+        $titleEntity = $this->titleRepository->find($title);
+        return new Name($firstName, $middleInitial, $lastName, $titleEntity ? $titleEntity : null);
     }
 
 }

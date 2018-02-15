@@ -90,4 +90,26 @@ class NameExploderTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals('Shaw', $name->lastName());
         $this->assertEquals('Srta Alistair Shaw', (string)$name);
     }
+
+    public function testImplodeName()
+    {
+        $exploder = new NameExploder('en');
+        $name = $exploder->implode('Alistair', 'Shaw', '', 'Mr');
+
+        $this->assertEquals('Mr', $name->title());
+        $this->assertEquals('Alistair', $name->firstName());
+        $this->assertEquals('', $name->middleInitial());
+        $this->assertEquals('Shaw', $name->lastName());
+        $this->assertEquals('Mr Alistair Shaw', (string)$name);
+    }
+
+    public function testUpdateTitle()
+    {
+        $exploder = new NameExploder('en');
+        $name = $exploder->implode('Alistair', 'Shaw', '', 'Mr');
+
+        $name = $exploder->updateTitle($name, 'Doctor');
+
+        $this->assertEquals('Doctor', (string)$name->title());
+    }
 }

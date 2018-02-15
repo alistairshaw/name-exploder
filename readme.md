@@ -37,6 +37,12 @@ echo $name;
 // pass in the language for the titles (default is english)
 $nameExploder = new NameExploder('es');
 $name = $nameExploder->explode('Mr Alistair Shaw');
+
+// make a name from pieces
+$name = $nameExploder->implode('Alistair', 'Shaw', '', 'Mr');
+
+// update the title on a name
+$name = $nameExploder->updateTitle('Dr', $name);
 ```
 
 ## Attaching your own data for titles
