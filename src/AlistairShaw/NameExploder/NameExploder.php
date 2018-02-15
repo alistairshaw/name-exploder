@@ -109,7 +109,7 @@ class NameExploder {
     public function implode($firstName = '', $lastName = '', $middleInitial = '', $title = '')
     {
         $titleEntity = $this->titleRepository->find($title);
-        return new Name($firstName, $lastName, $middleInitial, $titleEntity ? $titleEntity : null);
+        return new Name($firstName, $middleInitial, $lastName, $titleEntity ? $titleEntity : null);
     }
 
 }
