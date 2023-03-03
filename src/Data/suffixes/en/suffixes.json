@@ -1,0 +1,56 @@
+[
+    {
+        "primary": "Junior",
+        "language": "en",
+        "equivalents": "Jr",
+        "usageScore": 1
+    },
+    {
+        "primary": "Senior",
+        "language": "en",
+        "equivalents": "Sr",
+        "usageScore": 1
+    },
+    {
+        "primary": "I",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 1
+    },
+    {
+        "primary": "II",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 1
+    },
+    {
+        "primary": "III",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 2
+    },
+    {
+        "primary": "IV",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 2
+    },
+    {
+        "primary": "MD",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 2
+    },
+    {
+        "primary": "PhD",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 2
+    },
+    {
+        "primary": "FACS",
+        "language": "en",
+        "equivalents": "",
+        "usageScore": 2
+    }
+]
