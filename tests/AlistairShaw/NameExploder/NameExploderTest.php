@@ -1,8 +1,11 @@
-<?php namespace AlistairShaw\NameExploder\Test;
+<?php declare(strict_types=1);
+
+namespace AlistairShaw\NameExploder\Test;
 
 use AlistairShaw\NameExploder\NameExploder;
+use PHPUnit\Framework\TestCase;
 
-class NameExploderTest extends \PHPUnit_Framework_TestCase {
+final class NameExploderTest extends TestCase {
 
     public function testExplodeNameEnglish()
     {
