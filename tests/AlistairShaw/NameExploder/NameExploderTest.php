@@ -64,7 +64,7 @@ final class NameExploderTest extends TestCase {
         $this->assertEquals('', $name->firstName());
         $this->assertEquals('', $name->middleInitial());
         $this->assertEquals('Shaw', $name->lastName());
-        $this->assertEquals('Shaw, (Colonel)', $name->lastFirst());
+        $this->assertEquals('Shaw (Colonel)', $name->lastFirst());
         $this->assertEquals('Colonel Shaw', (string)$name);
 
         $name = $exploder->explode('Alistair');
@@ -75,14 +75,14 @@ final class NameExploderTest extends TestCase {
         $this->assertEquals('Alistair', $name->lastFirst());
         $this->assertEquals('Alistair', (string)$name);
 
-        $name = $exploder->explode('Alistair Shaw III');
-        $this->assertEquals('', $name->title());
+        $name = $exploder->explode('Dr Alistair M Shaw III, MD PhD');
+        $this->assertEquals('Doctor', $name->title());
         $this->assertEquals('Alistair', $name->firstName());
-        $this->assertEquals('', $name->middleInitial());
+        $this->assertEquals('M', $name->middleInitial());
         $this->assertEquals('Shaw', $name->lastName());
-        $this->assertEquals('III', $name->suffix());
-        $this->assertEquals('Shaw, Alistair III', $name->lastFirst());
-        $this->assertEquals('Alistair Shaw III', (string)$name);
+        $this->assertEquals('III MD PhD', $name->suffix());
+        $this->assertEquals('Shaw, Alistair M III MD PhD (Doctor)', $name->lastFirst());
+        $this->assertEquals('Doctor Alistair M Shaw III MD PhD', (string)$name);
 
         $name = $exploder->explode('Alistair Shaw, Jr.');
         $this->assertEquals('', $name->title());
@@ -98,12 +98,12 @@ final class NameExploderTest extends TestCase {
     {
         $exploder = new NameExploder('es');
 
-        $name = $exploder->explode('Sr Alistair Shaw');
+        $name = $exploder->explode('Sr Alistair Enrico Shaw Hernandez');
         $this->assertEquals('Sr', (string)$name->title());
         $this->assertEquals('Alistair', $name->firstName());
-        $this->assertEquals('', $name->middleInitial());
-        $this->assertEquals('Shaw', $name->lastName());
-        $this->assertEquals('Sr Alistair Shaw', (string)$name);
+        $this->assertEquals('Enrico', $name->middleInitial());
+        $this->assertEquals('Shaw Hernandez', $name->lastName());
+        $this->assertEquals('Sr Alistair Enrico Shaw Hernandez', (string)$name);
 
         $name = $exploder->explode('Señor Alistair M Shaw');
         $this->assertEquals('Sr', $name->title());
@@ -123,13 +123,23 @@ final class NameExploderTest extends TestCase {
     public function testImplodeName()
     {
         $exploder = new NameExploder('en');
-        $name = $exploder->implode('Alistair', 'Shaw', '', 'Mr');
+        $name = $exploder->implode('Alistair', 'Shaw', '', '', '');
+
+        $this->assertEquals('', $name->title());
+        $this->assertEquals('Alistair', $name->firstName());
+        $this->assertEquals('', $name->middleInitial());
+        $this->assertEquals('Shaw', $name->lastName());
+        $this->assertEquals('', $name->suffix());
+        $this->assertEquals('Alistair Shaw', (string)$name);
+
+        $name = $exploder->implode('Alistair', 'Shaw', '', 'Mr', 'Jr');
 
         $this->assertEquals('Mr', $name->title());
         $this->assertEquals('Alistair', $name->firstName());
         $this->assertEquals('', $name->middleInitial());
         $this->assertEquals('Shaw', $name->lastName());
-        $this->assertEquals('Mr Alistair Shaw', (string)$name);
+        $this->assertEquals('Junior', $name->suffix());
+        $this->assertEquals('Mr Alistair Shaw Junior', (string)$name);
     }
 
     public function testUpdateTitle()
