@@ -1,6 +1,9 @@
 <?php namespace AlistairShaw\NameExploder;
 
 use AlistairShaw\NameExploder\Name\Name;
+use AlistairShaw\NameExploder\Suffix\JSONSuffixRepository;
+use AlistairShaw\NameExploder\Suffix\Suffix;
+use AlistairShaw\NameExploder\Suffix\SuffixRepository;
 use AlistairShaw\NameExploder\Title\JSONTitleRepository;
 use AlistairShaw\NameExploder\Title\Title;
 use AlistairShaw\NameExploder\Title\TitleRepository;
@@ -13,11 +16,16 @@ class NameExploder {
     private $titleRepository;
 
     /**
+     * @var suffixRepository
+     */
+    private $suffixRepository;
+
+    /**
      * @var string
      */
     private $language;
 
-    public function __construct($language = 'en', TitleRepository $titleRepository = null)
+    public function __construct($language = 'en', TitleRepository $titleRepository = null, SuffixRepository $suffixRepository = null)
     {
         if ($titleRepository == null)
         {
@@ -26,6 +34,15 @@ class NameExploder {
         else
         {
             $this->titleRepository = $titleRepository;
+        }
+
+        if ($suffixRepository == null)
+        {
+            $this->suffixRepository = new JSONSuffixRepository();
+        }
+        else
+        {
+            $this->suffixRepository = $suffixRepository;
         }
 
         $this->language = $language;
@@ -44,6 +61,7 @@ class NameExploder {
         $firstName = '';
         $middleInitial = '';
         $lastName = '';
+        $suffixes = [];
 
         $nameArray = explode(" ", $name);
 
@@ -53,10 +71,20 @@ class NameExploder {
             return new Name($nameArray[0], '', '');
         }
 
+        // May have multiple suffixes
+        // echo end($nameArray) . "\r";
+        // die;
+        while ($findSuffix = $this->suffixRepository->find(end($nameArray), $this->language))
+        // while ($findSuffix)
+        {
+            $suffixes[] = $findSuffix;
+            array_pop($nameArray);
+        }
+
         if ($findTitle = $this->titleRepository->find($nameArray[0], $this->language))
         {
             $title = $findTitle;
-            array_splice($nameArray, 0, 1);
+            array_shift($nameArray);
         }
 
         if (count($nameArray) > 2)
@@ -68,7 +96,7 @@ class NameExploder {
         if (count($nameArray) > 1)
         {
             $firstName = $nameArray[0];
-            array_splice($nameArray, 0, 1);
+            array_shift($nameArray);
         }
 
         // if the first name is only 2 characters, and the second character is upper case, then it's first and middle initial
@@ -79,12 +107,9 @@ class NameExploder {
         }
 
         // last_name is everything else
-        foreach ($nameArray as $n)
-        {
-            $lastName .= $n;
-        }
+        $lastName = implode(' ', $nameArray);
 
-        return new Name($firstName, $middleInitial, $lastName, $title);
+        return new Name($firstName, $middleInitial, $lastName, $title, $suffixes);
     }
 
     /**
@@ -104,12 +129,19 @@ class NameExploder {
      * @param string $lastName
      * @param string $middleInitial
      * @param string $title
+     * @param string $suffixes
      * @return Name
      */
-    public function implode($firstName = '', $lastName = '', $middleInitial = '', $title = '')
+    public function implode($firstName = '', $lastName = '', $middleInitial = '', $title = '', $suffixes = '')
     {
         $titleEntity = $this->titleRepository->find($title);
-        return new Name($firstName, $middleInitial, $lastName, $titleEntity ? $titleEntity : null);
+        $suffixEntities = [];
+        if ($suffixes) {
+            foreach (explode(' ', $suffixes) as $suffix) {
+                $suffixEntities[] = $this->suffixRepository->find($suffix);
+            }
+        }
+        return new Name($firstName, $middleInitial, $lastName, $titleEntity ? $titleEntity : null, $suffixEntities ? $suffixEntities : []);
     }
 
 }
