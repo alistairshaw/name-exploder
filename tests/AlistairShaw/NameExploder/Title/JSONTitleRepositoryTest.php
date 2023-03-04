@@ -1,7 +1,10 @@
-<?php namespace AlistairShaw\NameExploder\Test;
+<?php declare(strict_types=1);
+
+namespace AlistairShaw\NameExploder\Test;
 
 use AlistairShaw\NameExploder\Title\JSONTitleRepository;
 use AlistairShaw\NameExploder\Title\Title;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class JSONTitleRepositoryTest
@@ -10,7 +13,7 @@ use AlistairShaw\NameExploder\Title\Title;
  * Tests are based on current data from JSON files, if you edit the JSON files,
  *    you may need to change these tests as well to match
  */
-class JSONTitleRepositoryTest extends \PHPUnit_Framework_TestCase {
+final class JSONTitleRepositoryTest extends TestCase {
 
     /**
      * @var JSONTitleRepository

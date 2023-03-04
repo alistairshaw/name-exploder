@@ -40,6 +40,7 @@ class JSONTitleRepository implements TitleRepository {
      */
     public function find($findTitle, $language = 'en')
     {
+        if (! $findTitle) return false;
         $titles = $this->getTitleArrayFromFile($language);
         foreach ($titles as $title)
         {
